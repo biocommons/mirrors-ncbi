@@ -2,15 +2,14 @@
 .PHONY: FORCE
 .DELETE_ON_ERROR:
 
+SHELL:=/bin/bash
+
 # TODAY: today's date, YYYY-MM-DD
 TODAY:=$(shell date +%F)
 
 # LATEST: alphanumerically-sorted last entry (i.e., most recent)
 # dated directory, if any
 LATEST:=$(lastword $(sort $(wildcard 201[0-9]-[0-9][0-9]-[0-9][0-9])))
-
-# SOURCES: list of relative paths at NCBI to mirror
-SOURCES:=$(shell perl -ne 'next if m/^\#/; s/\n/ /; print' sources)
 
 # if LATEST is empty or not TODAY, then use LATEST as a hard link
 # source to save bandwidth and local space
@@ -21,9 +20,9 @@ endif
 default:
 	@echo "Ain't no $@ target; try 'make update'" 1>&2; exit 1
 
-update: $(addprefix ${TODAY}/,${SOURCES});
+update: sources FORCE
+	perl -lne 'next if m/^\#/; s/\n/ /; print' <$< \
+	| while read f; do \
+		rsync --no-motd -HRavP ${RSYNC_LINK_DEST} ftp.ncbi.nih.gov::$$f ${TODAY}/$${f%%/*}; \
+	done
 	ln -fnsv ${TODAY} latest
-
-${TODAY}/%: FORCE
-	-@mkdir -p ${TODAY}
-	rsync ${RSYNC_LINK_DEST} -HRavP ftp.ncbi.nih.gov::$* ${TODAY}/
