@@ -1,5 +1,8 @@
+gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz
+gene/DATA/gene2accession.gz
 gene/DATA/gene2refseq.gz
+gene/DATA/gene_info.gz
+genomes/H_sapiens/CHR_*/hs*.fa.gz
 refseq/H_sapiens/README
 refseq/H_sapiens/alignments
 refseq/H_sapiens/mRNA_Prot
-genomes/Homo_sapiens/CHR_*/hs*.fa.gz
