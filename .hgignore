@@ -6,6 +6,6 @@ syntax: glob
 *.pyo
 *.sqlite3
 *~
+201?/*
 latest
 tmp
-2015-*
