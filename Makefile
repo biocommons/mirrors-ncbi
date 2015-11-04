@@ -25,6 +25,6 @@ update: sources FORCE
 	@mkdir -pv ${TODAY}
 	perl -lne 'next if m/^\#/; s/\n/ /; print' <$< \
 	| while read f; do \
-		(set -x; rsync --no-motd -HRavP ${RSYNC_LINK_DEST}/$${f%%/*} ftp.ncbi.nih.gov::$$f ${TODAY}/$${f%%/*}) \
+		(set -x; rsync --no-motd -HRavP ${RSYNC_LINK_DEST}/$${f%%/*} ftp.ncbi.nlm.nih.gov::$$f ${TODAY}/$${f%%/*}) \
 	done
 	ln -fnsv ${TODAY} latest
