@@ -2,7 +2,17 @@ gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz
 gene/DATA/gene2accession.gz
 gene/DATA/gene2refseq.gz
 gene/DATA/gene_info.gz
+
+genomes/ASSEMBLY_REPORTS/All/GCF_000001405.*.assembly.txt
+
 genomes/H_sapiens/CHR_*/hs*.fa.gz
+
 refseq/H_sapiens/README
 refseq/H_sapiens/alignments
 refseq/H_sapiens/mRNA_Prot
+
+pub/clinvar/xml
+pub/clinvar/vcf_GRCh37/clinvar*
+pub/clinvar/vcf_GRCh38/clinvar*
+
+snp/organisms/human_9606/XML/*xml.gz
