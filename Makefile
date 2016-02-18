@@ -2,11 +2,12 @@
 .PHONY: FORCE
 .DELETE_ON_ERROR:
 
+PATH:=/usr/bin:/bin
 SHELL:=/bin/bash
 
 # TODAY: today's date, YYYY-MM-DD
 TODAY:=$(shell date +%Y/%m/%d)
-UPDIR=$(shell mktemp -d ${TODAY}-XXXXXX.tmp)
+UPDIR:=$(shell mktemp -d ${TODAY}-XXXXXX.tmp)
 
 
 # LATEST: most recently *completed* sync directory, if any
@@ -27,13 +28,21 @@ vars:
 	@echo LATEST=${LATEST}
 	@echo RSYNC_LINK_DEST=${RSYNC_LINK_DEST}
 
-update: sources vars FORCE
+update: ${TODAY}/log;
+
+${TODAY}/log: ${UPDIR}/log
+	if [ -d "${TODAY}" ]; then chmod -R u+wX ${TODAY}; rm -fr "${TODAY}"; fi
+	mv ${UPDIR} ${TODAY}
+	ln -fnsv ${TODAY} latest
+
+${UPDIR}/log: sources vars FORCE
+	( \
+	set -e; \
 	perl -lne 'next if m/^\#/ or not m/\w/; s/\n/ /; print' <$< \
 	| while read f; do \
 		(set -x; rsync --no-motd -HRavP ${RSYNC_LINK_DEST}/$${f%%/*} ftp.ncbi.nlm.nih.gov::$$f ${UPDIR}/$${f%%/*}) \
-	done
-	mv ${UPDIR} ${TODAY}
-	ln -fnsv ${TODAY} latest
+	done; \
+	) 2>&1 | tee $@
 
 
 remove-temps:
