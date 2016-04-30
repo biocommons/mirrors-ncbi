@@ -7,8 +7,8 @@ SHELL:=/bin/bash
 
 # TODAY: today's date, YYYY-MM-DD
 TODAY:=$(shell date +%Y/%m/%d)
-UPDIR:=$(shell mktemp -d ${TODAY}-XXXXXX.tmp)
-
+UPDIR:=${TODAY}.tmp
+_:=$(shell mkdir -p ${UPDIR})
 
 # LATEST: most recently *completed* sync directory, if any
 # if LATEST is not empty (i.e., a prior directory exists), then use
@@ -35,6 +35,7 @@ ${TODAY}/log: ${UPDIR}/log
 	mv ${UPDIR} ${TODAY}
 	ln -fnsv ${TODAY} latest
 
+.PRECIOUS: ${UPDIR}/log
 ${UPDIR}/log: sources vars FORCE
 	( \
 	set -e; \
@@ -48,3 +49,13 @@ ${UPDIR}/log: sources vars FORCE
 remove-temps:
 	find . -name \*tmp\* -type d -print0 | xargs -0r /bin/chmod -R u+wX
 	find . -name \*tmp\* -type d -print0 | xargs -0r /bin/rm -fr
+
+
+hardlink:
+	(set -x; \
+	chown -R reece:reece .; \
+	find . -type d -print0 | xargs -0r chmod u+rwx; \
+	df -h .; \
+	hardlink -vfptoO .; \
+	df -h . \
+	) 2>&1 | tee $@.log
