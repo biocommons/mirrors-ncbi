@@ -7,5 +7,7 @@ syntax: glob
 *.sqlite3
 *~
 201?/*
+cleanup.log
+hardlink.log
 latest
 tmp

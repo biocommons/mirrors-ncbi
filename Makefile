@@ -7,9 +7,8 @@ SHELL:=/bin/bash -o pipefail
 
 # TODAY: today's date, YYYY-MM-DD
 TODAY:=$(shell date +%Y/%m/%d)
-
 UPDIR:=${TODAY}.tmp
-_:=$(shell mkdir -p ${UPDIR})
+#_:=$(shell mkdir -p ${UPDIR})
 
 DIR:=$(abspath $(dir $(firstword $(MAKEFILE_LIST))))
 
@@ -44,18 +43,18 @@ ${TODAY}/log: ${UPDIR}/log
 
 .PRECIOUS: ${UPDIR}/log
 ${UPDIR}/log: sources vars FORCE
-	if [ -d "${TODAY}" ]; then \
+	@if [ -d "${TODAY}" ]; then \
 		echo "${TODAY}/: Directory exists -- already completed?" 1>&2; \
 		exit 1; \
 	fi
-
-	( \
+	@mkdir -pv ${UPDIR}
+	@( \
 	set -e; \
 	perl -lne 'next if m/^\#/ or not m/\w/; s/\n/ /; print' <$< \
 	| while read f; do \
-		(set -x; rsync --no-motd -HRavP ${RSYNC_LINK_DEST}/$${f%%/*} ftp.ncbi.nlm.nih.gov::$$f ${UPDIR}/$${f%%/*}) \
+		(set -x; stdbuf -o0 -e0 rsync --no-motd -HRavP ${RSYNC_LINK_DEST}/$${f%%/*} ftp.ncbi.nlm.nih.gov::$$f ${UPDIR}/$${f%%/*} 2>&1) \
 	done; \
-	) 2>&1 | tee $@
+	) >$@
 
 
 .PHONY: _rsync_not_running
