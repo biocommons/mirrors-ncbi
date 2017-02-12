@@ -5,7 +5,7 @@ gene/DATA/gene_info.gz
 gene/GeneRIF/generifs_basic.gz
 gene/GeneRIF/interactions.gz
 
-genomes/ASSEMBLY_REPORTS/All/GCF_000001405.*.assembly.txt
+genomes/all/GCF/000/001/405/*/*assembly_report.txt
 genomes/H_sapiens/CHR_*/hs*.fa.gz
 genomes/H_sapiens/protein/protein.fa.gz
 
