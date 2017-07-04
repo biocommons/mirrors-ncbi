@@ -1,4 +1,4 @@
-NCBI Mirrors -- http://bitbucket.org/biocommons/mirrors-ncbi/
+NCBI Mirrors -- http://github.com/biocommons/mirrors-ncbi/
 
 This directory is the root of data mirrors from NCBI. The Makefile
 herein facilitates maintaining dated snapshots of data from NCBI.
@@ -6,6 +6,6 @@ Hard links are used for identical files across adjacent releases in
 order to conserve space.
 
 To use:
-$ hg clone http://bitbucket.org/biocommons/mirrors-ncbi/
+$ hg clone http://github.com/biocommons/mirrors-ncbi/
 $ cd mirrors-ncbi
 $ make update
