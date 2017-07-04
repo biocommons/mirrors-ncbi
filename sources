@@ -4,6 +4,7 @@ gene/DATA/gene2refseq.gz
 gene/DATA/gene_info.gz
 gene/GeneRIF/generifs_basic.gz
 gene/GeneRIF/interactions.gz
+gene/README
 
 genomes/all/GCF/000/001/405/*/*assembly_report.txt
 genomes/H_sapiens/CHR_*/hs*.fa.gz
