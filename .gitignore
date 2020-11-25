@@ -6,8 +6,9 @@ syntax: glob
 *.pyo
 *.sqlite3
 *~
-201?/*
+20??/*
 cleanup.log
 hardlink.log
 latest
 tmp
+wget-log
