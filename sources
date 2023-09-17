@@ -12,7 +12,11 @@ gene/README
 genomes/all/GCF/000/001/405/*/*assembly_report.txt
 
 # fasta assembly with latest patches of build 38:
-genomes/refseq/vertebrate_mammalian/Homo_sapiens/annotation_releases/current/GCF_000001405.*_GRCh38.p13/GCF_000001405.*_GRCh38.p13_genomic.fna.gz
+genomes/refseq/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/GCF_000001405.*_GRCh38.p14/GCF_000001405.*_GRCh38.p14_genomic.fna.gz
+
+# T2T assembly
+genomes/refseq/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/GCF_009914755.*_T2T-CHM13v2.0/GCF_009914755.*_T2T-CHM13v2.0_genomic.fna.gz
+
 
 # fasta assembly of build 37, which was archived in Feb 2020
 # see: https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Homo_sapiens/00__README_archiving_notice.txt
@@ -23,7 +27,10 @@ refseq/H_sapiens/README
 refseq/H_sapiens/RefSeqGene/*.gz
 refseq/H_sapiens/RefSeqGene/LRG_RefSeqGene
 refseq/H_sapiens/RefSeqGene/gene_RefSeqGene
+
+# gff3 files in here:
 refseq/H_sapiens/alignments
+
 refseq/H_sapiens/mRNA_Prot
 
 
