@@ -1,7 +1,5 @@
 # Edit this file to introduce tasks to be run by cron.
 # m h  dom mon dow   command
 
-16  22  *   *   Thu   make -C /home/reece/projects/biocommons/mirrors-ncbi update >>/tmp/mirrors-ncbi-update.log 2>&1
-16  22  *   *   Sat   make -C /home/reece/projects/biocommons/mirrors-ncbi cleanup >>/tmp/mirrors-ncbi-cleanup.log 2>&1
-
-#20 23 * * * make -n -C /home/reece/projects/biocommons/mirrors-ncbi update >>/tmp/mirrors-ncbi-update-n.log 2>&1
+16  22  *   *   Thu   make -C /biocommons/mirrors-ncbi update >>/tmp/mirrors-ncbi-update.log 2>&1
+16  22  *   *   Sat   make -C /biocommons/mirrors-ncbi cleanup >>/tmp/mirrors-ncbi-cleanup.log 2>&1

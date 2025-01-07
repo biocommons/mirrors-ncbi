@@ -1,6 +1,33 @@
 ## 2020-02-01: NCBI moved "old" refseq to genomes/archive/old_refseq/
 ## see ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/00__README_archiving_notice.txt
 
+###############################################
+# Genomes and alignments
+genomes/all/GCF/000/001/405/*/*assembly_report.txt
+
+genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/README.txt
+genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF*
+genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/RefSeq_transcripts_alignments/
+
+genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/README.txt
+genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF*
+genomes/all/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/RefSeq_transcripts_alignments/
+
+refseq/H_sapiens/README
+refseq/H_sapiens/RefSeqGene/*.gz
+refseq/H_sapiens/RefSeqGene/LRG_RefSeqGene
+refseq/H_sapiens/RefSeqGene/gene_RefSeqGene
+
+###############################################
+# RefSeq
+refseq/H_sapiens/mRNA_Prot
+
+# Deprecated gff3 files in here:
+refseq/H_sapiens/alignments/ARCHIVE/all/
+
+
+###############################################
+# Gene information
 gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz
 gene/DATA/gene2accession.gz
 gene/DATA/gene2refseq.gz
@@ -9,35 +36,11 @@ gene/GeneRIF/generifs_basic.gz
 gene/GeneRIF/interactions.gz
 gene/README
 
-genomes/all/GCF/000/001/405/*/*assembly_report.txt
 
-# fasta assembly with latest patches of build 38:
-genomes/refseq/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/GCF_000001405.*_GRCh38.p14/GCF_000001405.*_GRCh38.p14_genomic.fna.gz
-
-# T2T assembly
-genomes/refseq/vertebrate_mammalian/Homo_sapiens/all_assembly_versions/GCF_009914755.*_T2T-CHM13v2.0/GCF_009914755.*_T2T-CHM13v2.0_genomic.fna.gz
-
-
-# fasta assembly of build 37, which was archived in Feb 2020
-# see: https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Homo_sapiens/00__README_archiving_notice.txt
-genomes/archive/old_refseq/Homo_sapiens/ARCHIVE/BUILD.37.3/CHR_*/hs*.fa.gz
-genomes/archive/old_refseq/Homo_sapiens/ARCHIVE/BUILD.37.3/protein/protein.fa.gz
-
-refseq/H_sapiens/README
-refseq/H_sapiens/RefSeqGene/*.gz
-refseq/H_sapiens/RefSeqGene/LRG_RefSeqGene
-refseq/H_sapiens/RefSeqGene/gene_RefSeqGene
-
-# gff3 files in here:
-refseq/H_sapiens/alignments
-
-refseq/H_sapiens/mRNA_Prot
-
-
-#pub/clinvar/xml/
-#pub/clinvar/xml/_README
-#pub/clinvar/vcf_GRCh37/clinvar*
-#pub/clinvar/vcf_GRCh38/clinvar*
+# pub/clinvar/xml/Clinvar
+# pub/clinvar/xml/_README
+# pub/clinvar/vcf_GRCh37/clinvar*
+# pub/clinvar/vcf_GRCh38/clinvar*
 
 ## 2020-02-01: NCBI moved "old" refseq to genomes/archive/old_refseq/
 ## see ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/00__README_archiving_notice.txt
